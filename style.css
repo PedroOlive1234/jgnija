@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-image: url('/assests/bg.gif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.lightning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  pointer-events: none;
+  animation: lightning 7s infinite;
+}
+
+@keyframes lightning {
+  0% { opacity: 0; }
+  2% { opacity: 0.7; }
+  4% { opacity: 0; }
+  40% { opacity: 0; }
+  42% { opacity: 0.7; }
+  44% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.health-bars {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: relative;
+  transform: skew(20deg);
+  z-index: 1;
+}
+
+.health-bar {
+  width: 300px;
+  height: 30px;
+  border: 3px solid #000;
+  background: #333;
+  position: relative;
+  border-radius: 4px;
+}
+
+.health-bar-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ff0000, #ff4444);
+}
+
+.health-bar.right .health-bar-fill {
+  background: linear-gradient(to left, #ff0000, #ff4444);
+}
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.player {
+  width: 150px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.player-2 {
+  transform: scaleX(-1);
+}
+
+.dice-container {
+  position: relative;
+  z-index: 2;
+  animation: diceAppear 0.5s ease-out;
+}
+
+.dice {
+  width: 120px;
+  height: 120px;
+  animation: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.music-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(145deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.music-button:active {
+  transform: scale(0.95);
+}
+
+.music-button span {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
+
+.input-control {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid #ff4b2b;
+  width: 200px;
+  text-align: center;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.input-control:focus {
+  border-color: #ff416c;
+  box-shadow: 0 0 10px rgba(255, 65, 108, 0.7);
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+.damage-animation {
+  animation: shake 0.2s ease-in-out;
+}
