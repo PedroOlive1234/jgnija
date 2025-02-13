@@ -24,7 +24,6 @@ const victoriesDisplay = document.getElementById('victories');
 const defeatsDisplay = document.getElementById('defeats');
 const musicButton = document.getElementById('musicControl');
 
-// Atualizar os recordes na interface e no localStorage
 const atualizarRecordes = () => {
     victoriesDisplay.textContent = victories;
     defeatsDisplay.textContent = defeats;
@@ -32,26 +31,21 @@ const atualizarRecordes = () => {
     localStorage.setItem('defeats', defeats);
 };
 
-// Função para rolar o dado e aplicar a chance
 const rolarDado = (chance) => Math.floor(Math.random() * 20) + 1 + chance;
 
-// Função para escolher um jogador aleatoriamente (1 ou 2)
 const escolherJogador = () => Math.random() < 0.5 ? 1 : 2;
 
-// Função para atualizar a barra de vida na interface
 const atualizarBarraDeVida = (player, health) => {
     const healthBarFill = document.querySelector(`.health-bar${player === 1 ? '' : '.right'} .health-bar-fill`);
     healthBarFill.style.width = `${(health / 100) * 100}%`;
 };
 
-// Função para animar o jogador quando ele recebe dano
 const animarJogador = (playerClass) => {
     const player = document.querySelector(`.${playerClass}`);
     player.classList.add('damage-animation');
     setTimeout(() => player.classList.remove('damage-animation'), 500);
 };
 
-// Função para aplicar dano aleatório a um dos jogadores
 const aplicarDano = () => {
     const dano = rolarDado(0);
     const jogadorEscolhido = escolherJogador();
@@ -74,7 +68,6 @@ const aplicarDano = () => {
     }
 };
 
-// Função para derrotar o jogador e reiniciar a partida
 const derrotarJogador = (perdedor) => {
     if (perdedor === 1) {
         alert('Player 1 morreu! A partida será reiniciada.');
@@ -86,7 +79,6 @@ const derrotarJogador = (perdedor) => {
     reiniciarPartida();
 };
 
-// Função para reiniciar a partida
 const reiniciarPartida = () => {
     healthPlayer1 = healthPlayer2 = 100;
     atualizarBarraDeVida(1, healthPlayer1);
@@ -101,12 +93,10 @@ const reiniciarPartida = () => {
     atualizarRecordes();
 };
 
-// Função para iniciar o loop de dano
 const iniciarLoopDeDano = () => {
     intervalo = setInterval(aplicarDano, 2000);
 };
 
-// Função para aplicar habilidade
 const aplicarHabilidade = (jogador) => {
     const habilidade = habilidades[jogador];
     const dadoRolado = rolarDado(habilidade.chance);
@@ -126,7 +116,6 @@ const aplicarHabilidade = (jogador) => {
     }
 };
 
-// Event listeners
 document.getElementById('ability1').addEventListener('click', () => aplicarHabilidade(0));
 document.getElementById('ability2').addEventListener('click', () => aplicarHabilidade(1));
 document.getElementById('ability3').addEventListener('click', () => aplicarHabilidade(2));
