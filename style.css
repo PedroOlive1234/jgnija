@@ -6,9 +6,7 @@
 
 body {
   height: 100vh;
-  background-image: url('/assests/bg.gif');
-  background-size: cover;
-  background-position: center;
+  background: url('/assests/bg.gif') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,13 +28,10 @@ body {
 }
 
 @keyframes lightning {
-  0% { opacity: 0; }
-  2% { opacity: 0.7; }
-  4% { opacity: 0; }
+  0%, 100% { opacity: 0; }
+  2%, 42% { opacity: 0.7; }
+  4%, 44% { opacity: 0; }
   40% { opacity: 0; }
-  42% { opacity: 0.7; }
-  44% { opacity: 0; }
-  100% { opacity: 0; }
 }
 
 .health-bars {
@@ -75,7 +70,7 @@ body {
   z-index: 1;
 }
 
-.player {
+.player, .player-2 {
   width: 150px;
   height: 200px;
   object-fit: contain;
@@ -94,7 +89,7 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .content-container {
@@ -108,22 +103,25 @@ body {
   z-index: 2;
 }
 
-.music-button {
-  margin-top: 20px;
-  padding: 15px 30px;
-  background: linear-gradient(145deg, #ff416c, #ff4b2b);
+.music-button, .ability-button {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
   color: white;
   border: none;
-  border-radius: 50px;
   cursor: pointer;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
   transition: background 0.3s ease, transform 0.3s ease;
-  font-size: 16px;
-  font-weight: bold;
-  z-index: 1000;
 }
 
-.music-button:active {
+.music-button {
+  padding: 15px 30px;
+  background: linear-gradient(145deg, #ff416c, #ff4b2b);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.music-button:active, .ability-button:active {
   transform: scale(0.95);
 }
 
@@ -137,10 +135,10 @@ body {
   margin-top: 20px;
   padding: 10px;
   font-size: 16px;
-  border-radius: 5px;
-  border: 2px solid #ff4b2b;
   width: 200px;
   text-align: center;
+  border-radius: 5px;
+  border: 2px solid #ff4b2b;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -158,19 +156,8 @@ body {
 }
 
 .ability-button {
-  padding: 10px 20px;
-  margin: 0 10px;
   background: linear-gradient(145deg, #a80707, #a71b1b);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.ability-button:active {
-  transform: scale(0.95);
+  font-size: 16px;
 }
 
 .records-container {
@@ -183,4 +170,3 @@ body {
 .records-container p {
   margin: 5px 0;
 }
-
