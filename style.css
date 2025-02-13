@@ -88,13 +88,11 @@ body {
 .dice-container {
   position: relative;
   z-index: 2;
-  animation: diceAppear 0.5s ease-out;
 }
 
 .dice {
   width: 120px;
   height: 120px;
-  animation: none;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
@@ -153,14 +151,36 @@ body {
   box-shadow: 0 0 10px rgba(255, 65, 108, 0.7);
 }
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-10px); }
-  50% { transform: translateX(10px); }
-  75% { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
+.abilities-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.damage-animation {
-  animation: shake 0.2s ease-in-out;
+.ability-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background: linear-gradient(145deg, #a80707, #a71b1b);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
+
+.ability-button:active {
+  transform: scale(0.95);
+}
+
+.records-container {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.records-container p {
+  margin: 5px 0;
+}
+
