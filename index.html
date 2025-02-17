@@ -9,43 +9,94 @@
     <title>ninja</title>
 </head>
 <body>
-    <div class="lightning"></div>
-    
-    <div class="health-bars">
-        <div class="health-bar" data-player="Player 1">
-            <div class="health-bar-fill"></div>
-        </div>
-        <div class="health-bar right" data-player="Player 2">
-            <div class="health-bar-fill"></div>
-        </div>
-    </div>
 
-    <div class="content-container">
-        <div class="dice-container">
-            <img class="dice" src="assests/dado.gif" alt="Dice GIF">
-        </div>
-
-        <input type="text" class="input-control" placeholder="numero gerado" />
-
-        <button id="musicControl" class="music-button">
-            <span>Play</span>
-        </button>
-
-        <div class="abilities-container">
-            <button id="ability1" class="ability-button">Habilidade 1</button>
-            <button id="ability2" class="ability-button">Habilidade 2</button>
-            <button id="ability3" class="ability-button">Habilidade 3</button>
-        </div>
-
-        <div class="records-container">
-            <p>Vitórias: <span id="victories">0</span></p>
-            <p>Derrotas: <span id="defeats">0</span></p>
+    <div class="start-screen">
+        <div class="start-content">
+            <h1>Bem-vindo ao jogo Ninja!</h1>
+            <p>Prepare-se para a batalha!</p>
+            <button id="showPlayerSelectionButton" class="start-button">Selecionar Personagens</button>
+            <button id="newGameButton" class="game-button">Novo Jogo</button>
         </div>
     </div>
 
-    <div class="players">
-        <img class="player" src="/assests/p1.gif" alt="Player 1">
-        <img class="player player-2" src="/assests/p2.gif" alt="Player 2">
+    <div class="player-selection-screen">
+        <div class="selection-content">
+            <h1>Selecione os Personagens</h1>
+            
+            <div class="player-select-container">
+                <div class="player-selection">
+                    <h2>Player 1</h2>
+                    <div class="character-options">
+                        <div class="character" data-player="1" data-character="p1">
+                            <img src="/assests/p1.gif" alt="Ninja Azul">
+                            <p>Ninja Azul</p>
+                        </div>
+                        <div class="character" data-player="1" data-character="p2">
+                            <img src="/assests/p2.gif" alt="Ninja Vermelho">
+                            <p>Ninja Vermelho</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-selection">
+                    <h2>Player 2</h2>
+                    <div class="character-options">
+                        <div class="character" data-player="2" data-character="p1">
+                            <img src="/assests/p1.gif" alt="Ninja Azul">
+                            <p>Ninja Azul</p>
+                        </div>
+                        <div class="character" data-player="2" data-character="p2">
+                            <img src="/assests/p2.gif" alt="Ninja Vermelho">
+                            <p>Ninja Vermelho</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="startGameButton" class="start-button">Começar Jogo</button>
+            <button id="backToMainButton" class="game-button">Voltar</button>
+        </div>
+    </div>
+
+    <div id="gameScreen" style="display: none;">
+        <div class="lightning"></div>
+        
+        <div class="health-bars">
+            <div class="health-bar" data-player="Player 1">
+                <div class="health-bar-fill"></div>
+            </div>
+            <div class="health-bar right" data-player="Player 2">
+                <div class="health-bar-fill"></div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="dice-container">
+                <img class="dice" src="assests/dado.gif" alt="Dice GIF">
+            </div>
+
+            <input type="text" class="input-control" placeholder="numero gerado" />
+
+            <button id="musicControl" class="music-button">
+                <span>Play</span>
+            </button>
+
+            <div class="abilities-container">
+                <button id="ability1" class="ability-button">Habilidade 1</button>
+                <button id="ability2" class="ability-button">Habilidade 2</button>
+                <button id="ability3" class="ability-button">Habilidade 3</button>
+            </div>
+
+            <div class="records-container">
+                <p>Vitórias: <span id="victories">0</span></p>
+                <p>Derrotas: <span id="defeats">0</span></p>
+            </div>
+        </div>
+
+        <div class="players">
+            <img class="player" src="/assests/p1.gif" alt="Player 1">
+            <img class="player player-2" src="/assests/p2.gif" alt="Player 2">
+        </div>
     </div>
 </body>
 </html>
